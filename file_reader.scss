@@ -1,0 +1,143 @@
+$white: #fafdfd;
+
+.file-reader {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
+  border: 3px dashed #d8e1ea;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #EDF2F7;
+  transition: background-color 0.3s;
+
+  .cloud-keyframe{
+      display: none;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      & > svg {
+        position: relative;
+      	animation-name: cloud-animate;
+      	animation-duration: 0.6s;
+      	animation-iteration-count: infinite;
+      	animation-direction: alternate;
+        margin: auto;
+      }
+  }
+
+  .file-reader-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%,-50%);
+  }
+.file-reader-content svg{
+  margin: auto;
+}
+
+  .file-load {
+    display: none;
+    animation: rotate-load 2s linear infinite;
+    height: 50%;
+    max-height: 100px;
+    transform-origin: center center;
+    width: 50%;
+    max-width: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      stroke: $white;
+      animation: dash-load 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+    }
+  }
+
+  @keyframes rotate-load {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash-load {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
+
+
+
+
+  & .file-reader-text {
+    display: none;
+    position: absolute;
+    width: 82%;
+    left: 50%;
+    bottom: 10%;
+    margin-left: -41%;
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  &:hover{
+    background-color: rgba(255, 51, 51, 0.8);
+  	border-color: transparent;
+  	color: #fff;
+  	font-family: 'Roboto';
+  	font-size: 13px;
+
+    .file-reader-content{
+      display: none;
+    }
+
+    .cloud-keyframe, .file-reader-text{
+      display: block;
+    }
+  }
+
+  &.load-file{
+    background-color: #EDF2F7!important;
+
+
+    .file-reader-content{
+      display: none;
+    }
+
+    .cloud-keyframe, .file-reader-text{
+      display: none;
+    }
+
+    .file-load{
+      display: block;
+    }
+
+  }
+}
+
+@keyframes cloud-animate {
+    0%   {top: 0px;}
+    100%  {top: 10px;}
+}

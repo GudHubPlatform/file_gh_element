@@ -1,0 +1,108 @@
+@import "./css3-mixins";
+
+$blue: #0D99FF;
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --------------------------------------------------- FILE --------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+gh-file {
+  display: block;
+  position: relative;
+  padding-top: 14px;
+    @include transition( '0.3s ease-out all');
+
+    [gh-file-reader] {
+        width: 95px;
+        height: 125px;
+    }
+
+    .gh-file-list {
+        & > div {
+            display: inline-block;
+            position: relative;
+            float: left;
+        }
+
+        .file {
+            display: inline-block;
+            position: relative;
+            float: left;
+
+            .dropdown {
+                margin: 0;
+                z-index: 6;
+                position: absolute;
+                right: 0;
+                &_icon {
+                    line-height: 0;
+                    cursor: pointer;
+                    font-size: 33px;
+                    font-weight: 500;
+                    color: $blue;
+                }
+                &_elements {
+                    position: absolute;
+                    top: 15px;
+                    width: max-content;
+                    display: none;
+                    padding: 10px 15px;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                    transition: .3s all ease-in;
+                    
+                    .download, .copy, .delete {
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 5px;
+                        span {
+                            margin-right: 5px;
+                        }
+                    }
+                    .copy {
+                        .success_copy {
+                            padding: 10px;
+                            background-color: rgba(0,0,0,.5);
+                            border-radius: 10px;
+                            color: #fff;
+                            position: absolute;
+                            top: 3px;
+                        }
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                &:hover {
+                    .dropdown_elements {
+                        display: block;
+                        transition: .3s all ease-in;
+                    }
+                }
+            }
+
+            .file-name {
+                text-align: center;
+                max-width: 100px;
+                margin: auto;
+                max-height: 45px;
+
+                p {
+                    padding: 5px 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
+.gh_file_wrapp{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gh_file_name{
+  text-decoration: none;
+  color: $blue;
+}
