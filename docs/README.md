@@ -1,6 +1,6 @@
 # File Element
 
-**File** is a gh-element that was created for ![GudHub no code development platform](https://gudhub.com) it is intended for uploading, saving, and displaying [files](../Rest_API/file.md) in applications. To upload a file, click on the field and select a file in the local folder. You can also drag a file into the field.
+**File** is a gh-element that was created for [GudHub no code development platform](https://gudhub.com) it is intended for uploading, saving, and displaying [files](../Rest_API/file.md) in applications. To upload a file, click on the field and select a file in the local folder. You can also drag a file into the field.
 
 >A file can be uploaded to a field only if [Input](#input) interpretation type is enabled.
 
